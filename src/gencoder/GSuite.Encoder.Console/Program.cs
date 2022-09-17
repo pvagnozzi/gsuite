@@ -1,2 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System.Text;
+
+StringBuilder builder = new();
+builder.AppendLine("Hello");
+builder.AppendLine("World!");
+
+Console.WriteLine(builder.ToString());
+

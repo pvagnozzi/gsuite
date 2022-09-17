@@ -8,4 +8,9 @@
     <AssemblyName>gencoder</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\GSuite.GCode\GSuite.GCode.csproj" />
+    <ProjectReference Include="..\..\shared\GSuite.Serialization\GSuite.Serialization.csproj" />
+  </ItemGroup>
+
 </Project>
