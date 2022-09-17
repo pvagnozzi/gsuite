@@ -19,4 +19,10 @@
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="vcpkg.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
 </Project>

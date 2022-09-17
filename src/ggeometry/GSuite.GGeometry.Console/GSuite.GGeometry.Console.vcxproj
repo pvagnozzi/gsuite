@@ -72,13 +72,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>ggeometry</TargetName>
-    <OutDir>$(SolutionDir)builds\$(Platform)\$(Configuration)\bin\</OutDir>
-    <IntDir>$(SolutionDir)builds\$(Platform)\$(Configuration)\obj\</IntDir>
+    <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Platform)\$(Configuration)\obj\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetName>ggeometry</TargetName>
-    <OutDir>$(SolutionDir)builds\$(Platform)\$(Configuration)\bin\</OutDir>
-    <IntDir>$(SolutionDir)builds\$(Platform)\$(Configuration)\obj\</IntDir>
+    <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Platform)\$(Configuration)\obj\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnableManifest>true</VcpkgEnableManifest>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgInstalledDir>$(SolutionDir)build\vcpkg\</VcpkgInstalledDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgInstalledDir>$(SolutionDir)build\vcpkg\</VcpkgInstalledDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -140,6 +149,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GSuite.GGeometry.Console.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="vcpkg.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
