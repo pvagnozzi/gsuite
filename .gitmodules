@@ -1,0 +1,7 @@
+[submodule "includes/nanosvg"]
+	path = includes/nanosvg
+	url = https://github.com/memononen/nanosvg.git
+
+[submodule "vcpkg"]
+	path = vcpkg
+	url = https://github.com/microsoft/vcpkg.git
