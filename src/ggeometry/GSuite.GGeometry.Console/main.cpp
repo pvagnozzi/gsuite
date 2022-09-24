@@ -37,14 +37,28 @@ int main(const int argc, char* argv[])
     return 1;
   }
 
+
   double zmax = 0;
   double zmin = -1;
 
-  for(const auto& point : mesh.points())
+  int count = 0;
+
+  for (const auto& point : mesh.points())
   {
+    count++;
     const auto z = point.z();
     zmax = z > zmax ? z : zmax;
-    zmin = (zmin < 0) || (z < zmin) ? z : zmin;
+    zmin = zmin < 0 || z < zmin ? z : zmin;
+  }
+
+  // Slicer constructor from the mesh
+  CGAL::Polygon_mesh_slicer<mesh_type, k> slicer(mesh);
+  for(auto z = zmin; z < zmax; z += 0.1)
+  {
+    polylines polylines;
+    slicer(k::Plane_3(1, 1, 0, z), std::back_inserter(polylines));
+
+    std::cout << "At z = " << z << ", the slicer intersects " << polylines.size() << " polylines" << std::endl;
   }
 
   return 0;

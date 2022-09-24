@@ -1,0 +1,22 @@
+
+
+@code {
+
+    private object _value;
+
+    [Parameter]
+    public object BindingValue
+    {
+        get => _value;
+        set
+        {
+            if (_value == value) return;
+            _value = value;
+            BindingValueChanged.InvokeAsync(value);
+        }
+    }
+
+    [Parameter]
+    public EventCallback<object> BindingValueChanged { get; set; }
+
+}
